@@ -1,0 +1,82 @@
+{
+    "order": {
+        "_uid": {
+            "store": "yes"
+        },
+        "_id": {
+            "path": "order_id"
+        },
+        "_type": {
+            "store": "yes"
+        },
+        "_source": {
+            "store": "yes"
+        },
+        "_all": {
+            "enable": false
+        },
+        "_analyzer": {
+            "path": "analyzer_field"
+        },
+        "_boost": {
+            "null_value": 1.0
+        },
+        "_routing": {
+            "path": "customer_id",
+            "required": true
+        },
+        "_index": {
+            "enabled": true
+        },
+        "_size": {
+            "enabled": true,
+            "store": "yes"
+        },
+        "_timestamp": {
+            "enabled": true,
+            "store": "yes",
+            "path": "date"
+        },
+        "_ttl": {
+            "enabled": true,
+            "default": "3y"
+        },
+        "properties": {
+            "order_id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "date": {
+                "type": "date",
+                "store": "no",
+                "index": "not_analyzed"
+            },
+            "analyzer_field": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "customer_id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "customer_ip": {
+                "type": "ip",
+                "store": "yes",
+                "index": "yes"
+            },
+            "customer_location": {
+                "type": "geo_point",
+                "store": "yes"
+            },
+            "sent": {
+                "type": "boolean",
+                "store": "no",
+                "index": "not_analyzed"
+            }
+        }
+    }
+}
+

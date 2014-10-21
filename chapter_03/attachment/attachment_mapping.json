@@ -1,0 +1,41 @@
+{
+    "email": {
+        "properties": {
+            "sender": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "date": {
+                "type": "date",
+                "store": "no",
+                "index": "not_analyzed"
+            },
+            "document": {
+                "type": "attachment",
+                "fields": {
+                    "file": {
+                        "store": "yes",
+                        "index": "analyzed"
+                    },
+                    "date": {
+                        "store": "yes"
+                    },
+                    "author": {
+                        "store": "yes"
+                    },
+                    "keywords": {
+                        "store": "yes"
+                    },
+                    "content_type": {
+                        "store": "yes"
+                    },
+                    "title": {
+                        "store": "yes"
+                    }
+                }
+            }
+        }
+    }
+}
+

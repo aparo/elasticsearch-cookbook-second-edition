@@ -1,0 +1,14 @@
+{
+    "query": {
+        "filtered": {
+            "filter": {
+                "script": {
+                    "script": "doc[\"age\"].value > 80"
+                }
+            },
+            "query": {
+                "match_all": {}
+            }
+        }
+    }
+}

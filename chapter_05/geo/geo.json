@@ -1,0 +1,29 @@
+{
+    "query": {
+        "filtered": {
+            "filter": {
+                "geo_polygon": {
+                    "pin.location": {
+                        "points": [
+                            {
+                                "lat": 50,
+                                "lon": -30
+                            },
+                            {
+                                "lat": 30,
+                                "lon": -80
+                            },
+                            {
+                                "lat": 80,
+                                "lon": -90
+                            }
+                        ]
+                    }
+                }
+            },
+            "query": {
+                "match_all": {}
+            }
+        }
+    }
+}

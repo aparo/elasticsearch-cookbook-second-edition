@@ -1,0 +1,10 @@
+{
+    "order": {
+        "_meta": {
+            "attr1": ["value1", "value2"],
+            "attr2": {
+                "attr3": "value3"
+            }
+        }
+    }
+}

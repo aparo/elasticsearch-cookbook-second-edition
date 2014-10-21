@@ -1,0 +1,157 @@
+{
+  "took" : 87,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1000,
+    "max_score" : 1.0,
+    "hits" : [ ]
+  },
+  "facets" : {
+    "age" : {
+      "_type" : "histogram",
+      "entries" : [ {
+        "key" : 0,
+        "count" : 34
+      }, {
+        "key" : 5,
+        "count" : 41
+      }, {
+        "key" : 10,
+        "count" : 42
+      }, {
+        "key" : 15,
+        "count" : 43
+      }, {
+        "key" : 20,
+        "count" : 50
+      }, {
+        "key" : 25,
+        "count" : 52
+      }, {
+        "key" : 30,
+        "count" : 43
+      }, {
+        "key" : 35,
+        "count" : 40
+      }, {
+        "key" : 40,
+        "count" : 52
+      }, {
+        "key" : 45,
+        "count" : 56
+      }, {
+        "key" : 50,
+        "count" : 47
+      }, {
+        "key" : 55,
+        "count" : 50
+      }, {
+        "key" : 60,
+        "count" : 58
+      }, {
+        "key" : 65,
+        "count" : 48
+      }, {
+        "key" : 70,
+        "count" : 42
+      }, {
+        "key" : 75,
+        "count" : 50
+      }, {
+        "key" : 80,
+        "count" : 67
+      }, {
+        "key" : 85,
+        "count" : 66
+      }, {
+        "key" : 90,
+        "count" : 58
+      }, {
+        "key" : 95,
+        "count" : 52
+      }, {
+        "key" : 100,
+        "count" : 9
+      } ]
+    },
+    "price" : {
+      "_type" : "histogram",
+      "entries" : [ {
+        "key" : 0,
+        "count" : 105
+      }, {
+        "key" : 10,
+        "count" : 107
+      }, {
+        "key" : 20,
+        "count" : 79
+      }, {
+        "key" : 30,
+        "count" : 99
+      }, {
+        "key" : 40,
+        "count" : 99
+      }, {
+        "key" : 50,
+        "count" : 105
+      }, {
+        "key" : 60,
+        "count" : 97
+      }, {
+        "key" : 70,
+        "count" : 119
+      }, {
+        "key" : 80,
+        "count" : 91
+      }, {
+        "key" : 90,
+        "count" : 99
+      } ]
+    },
+    "date" : {
+      "_type" : "histogram",
+      "entries" : [ {
+        "key" : 1275264000000,
+        "count" : 19
+      }, {
+        "key" : 1290816000000,
+        "count" : 94
+      }, {
+        "key" : 1306368000000,
+        "count" : 83
+      }, {
+        "key" : 1321920000000,
+        "count" : 104
+      }, {
+        "key" : 1337472000000,
+        "count" : 84
+      }, {
+        "key" : 1353024000000,
+        "count" : 86
+      }, {
+        "key" : 1368576000000,
+        "count" : 100
+      }, {
+        "key" : 1384128000000,
+        "count" : 78
+      }, {
+        "key" : 1399680000000,
+        "count" : 90
+      }, {
+        "key" : 1415232000000,
+        "count" : 86
+      }, {
+        "key" : 1430784000000,
+        "count" : 108
+      }, {
+        "key" : 1446336000000,
+        "count" : 68
+      } ]
+    }
+  }
+}

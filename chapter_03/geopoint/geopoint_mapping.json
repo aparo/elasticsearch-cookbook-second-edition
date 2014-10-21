@@ -1,0 +1,36 @@
+{
+    "order": {
+        "properties": {
+            "id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "date": {
+                "type": "date",
+                "store": "no",
+                "index": "not_analyzed"
+            },
+            "customer_id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "customer_ip": {
+                "type": "ip",
+                "store": "yes",
+                "index": "yes"
+            },
+            "customer_location": {
+                "type": "geo_point",
+                "store": "yes"
+            },
+            "sent": {
+                "type": "boolean",
+                "store": "no",
+                "index": "not_analyzed"
+            }
+        }
+    }
+}
+

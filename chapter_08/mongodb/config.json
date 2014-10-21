@@ -1,0 +1,13 @@
+{
+  "type" : "mongodb",
+  "mongodb" : {
+   "servers" : [
+    { "host" : "localhost", "port" : 27017 }
+   ],
+   "db" : "escookbook",
+   "collection" : "items"
+  },
+  "index" : {
+   "name" : "items"
+  }
+}

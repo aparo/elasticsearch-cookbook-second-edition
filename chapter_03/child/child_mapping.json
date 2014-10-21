@@ -1,0 +1,50 @@
+{
+    "order": {
+        "properties": {
+            "id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "date": {
+                "type": "date",
+                "store": "no",
+                "index": "not_analyzed"
+            },
+            "customer_id": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "sent": {
+                "type": "boolean",
+                "store": "no",
+                "index": "not_analyzed"
+            }
+        }
+    },
+    "item": {
+        "_parent": {
+            "type": "order"
+        },
+        "type": "nested",
+        "properties": {
+            "name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed"
+            },
+            "quantity": {
+                "type": "integer",
+                "store": "no",
+                "index": "not_analyzed"
+            },
+            "vat": {
+                "type": "double",
+                "store": "no",
+                "index": "not_analyzed"
+            }
+        }
+    }
+}
+
