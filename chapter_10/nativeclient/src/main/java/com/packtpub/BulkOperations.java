@@ -36,16 +36,16 @@ public class BulkOperations {
 
         BulkRequestBuilder bulker=client.prepareBulk();
         for (Integer i=1; i<=1000; i++){
-            bulker.add(client.prepareIndex(index, type, i.toString()).setSource("text", i.toString()));
+            bulker.add(client.prepareIndex(index, type, i.toString()).setSource("position", i.toString()));
         }
         System.out.println("Number of actions for index: " + bulker.numberOfActions());
         bulker.execute().actionGet();
 
         bulker=client.prepareBulk();
         for (Integer i=1; i<=1000; i++){
-            bulker.add(client.prepareUpdate(index, type, i.toString()).setScript("ctx._source.text += 2", ScriptService.ScriptType.INLINE));
+            bulker.add(client.prepareUpdate(index, type, i.toString()).setScript("ctx._source.position += 2", ScriptService.ScriptType.INLINE));
         }
-        System.out.println("Number of actions for udpate: " + bulker.numberOfActions());
+        System.out.println("Number of actions for update: " + bulker.numberOfActions());
         bulker.execute().actionGet();
 
         bulker=client.prepareBulk();

@@ -37,7 +37,7 @@ public class DocumentOperations {
             System.out.println("Unable to create mapping");
         }
 
-        IndexResponse ir=client.prepareIndex(index, type, "2").setSource("text", "value").execute().actionGet();
+        IndexResponse ir=client.prepareIndex(index, type, "2").setSource("text", "unicorn").execute().actionGet();
         System.out.println("Version: "+ir.getVersion());
         GetResponse gr=client.prepareGet(index, type, "2").execute().actionGet();
         System.out.println("Version: "+gr.getVersion());
