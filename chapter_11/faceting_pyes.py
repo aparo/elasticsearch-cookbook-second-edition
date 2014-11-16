@@ -15,7 +15,7 @@ q = MatchAllQuery()
 q = q.search()
 q.facet.add_term_facet('tag')
 
-results = es.search(index_name, type_name, q)
+results = es.search(indices=index_name, doc_types=type_name, query=q)
 
 from pyes.facets import *
 q = MatchAllQuery()
@@ -24,6 +24,6 @@ q.facet.facets.append(DateHistogramFacet('date_facet',
     field='date',
     interval='month'))
 
-results = es.search(index_name, type_name, q)
+results = es.search(indices=index_name, doc_types=type_name, query=q)
 
-es.indices.delete(index_name)
+es.indices.delete_index(index_name)
