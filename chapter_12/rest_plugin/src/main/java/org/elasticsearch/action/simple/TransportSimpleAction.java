@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
 import org.elasticsearch.action.ShardOperationFailedException;
+import org.elasticsearch.action.support.ActionFilters;
 import org.elasticsearch.action.support.DefaultShardOperationFailedException;
 import org.elasticsearch.action.support.broadcast.BroadcastShardOperationFailedException;
 import org.elasticsearch.action.support.broadcast.TransportBroadcastOperationAction;
@@ -54,8 +55,8 @@ public class TransportSimpleAction
 
     @Inject
     public TransportSimpleAction(Settings settings, ThreadPool threadPool, ClusterService clusterService,
-                                 TransportService transportService, IndicesService indicesService) {
-        super(settings, SimpleAction.NAME, threadPool, clusterService, transportService);
+                                 TransportService transportService, IndicesService indicesService, ActionFilters actionFilters) {
+        super(settings, SimpleAction.NAME, threadPool, clusterService, transportService, actionFilters);
         this.indicesService = indicesService;
     }
 
@@ -105,7 +106,7 @@ public class TransportSimpleAction
 
     @Override
     protected ShardSimpleRequest newShardRequest(int numShards, ShardRouting shard, SimpleRequest request) {
-        return new ShardSimpleRequest(shard.index(), shard.id(), request);
+        return new ShardSimpleRequest(shard.shardId(), request);
     }
 
 
@@ -117,11 +118,11 @@ public class TransportSimpleAction
     @Override
     protected ShardSimpleResponse shardOperation(ShardSimpleRequest request) {
         synchronized (simpleMutex) {
-            InternalIndexShard indexShard = (InternalIndexShard) indicesService.indexServiceSafe(request.index()).shardSafe(request.shardId());
+            InternalIndexShard indexShard = (InternalIndexShard) indicesService.indexServiceSafe(request.index()).shardSafe(request.shardId().id());
             indexShard.store().directory();
             Set<String> set = new HashSet<String>();
             set.add(request.getField() + "_" + request.shardId());
-            return new ShardSimpleResponse(request.index(), request.shardId(), set);
+            return new ShardSimpleResponse(request.shardId(), set);
         }
     }
 

@@ -19,7 +19,7 @@ import static org.elasticsearch.rest.action.support.RestActions.buildBroadcastSh
 public class RestSimpleAction extends BaseRestHandler {
     @Inject
     public RestSimpleAction(Settings settings, Client client, RestController controller) {
-        super(settings, client);
+        super(settings, controller, client);
         controller.registerHandler(POST, "/_simple", this);
         controller.registerHandler(POST, "/{index}/_simple", this);
         controller.registerHandler(POST, "/_simple/{field}", this);
