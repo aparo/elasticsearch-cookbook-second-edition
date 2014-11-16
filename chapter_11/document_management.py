@@ -27,7 +27,9 @@ es.delete(index=index_name, doc_type=type_name, id=3)
 
 from elasticsearch.helpers import bulk_index
 bulk_index(es, [{"name": "Joe Tester", "parsedtext": "Joe Testere nice guy", "uuid": "11111", "position": 1,
-               "date": datetime(2013, 12, 8), "_index":index_name, "_type":type_name, "_id":"1"}
+               "date": datetime(2013, 12, 8), "_index":index_name, "_type":type_name, "_id":"1"},
+               {"name": "Bill Baloney", "parsedtext": "Bill Testere nice guy", "uuid": "22222", "position": 2,
+               "date": datetime(2013, 12, 8)}
 ])
 
 es.indices.delete(index_name)
